@@ -1,0 +1,34 @@
+.track { position: relative; height: 370svh; background: #f3f5f7; }
+.stickyStage { position: sticky; top: 76px; height: calc(100svh - 76px); min-height: 590px; display: grid; place-items: center; padding: clamp(12px, 2.2vw, 32px); overflow: hidden; background: radial-gradient(circle at 12% 12%, rgb(23 143 229 / 8%), transparent 28%), #f3f5f7; }
+.frame { position: relative; width: min(100%, 1480px); height: min(800px, calc(100svh - 118px)); min-height: 520px; overflow: hidden; border: 1px solid rgb(3 28 81 / 11%); border-radius: clamp(24px, 3vw, 48px); background: #fff; box-shadow: 0 32px 100px rgb(3 28 81 / 11%); isolation: isolate; }
+.frameTopline { position: absolute; z-index: 20; inset: 0 0 auto; display: flex; justify-content: space-between; padding: clamp(21px, 2.5vw, 36px) clamp(23px, 3.5vw, 52px); color: rgb(3 28 81 / 56%); font-size: 10px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; mix-blend-mode: multiply; }
+.frameIndex { color: #0661f1; }
+.introScene, .finalScene { position: absolute; inset: 0; will-change: transform, opacity; }
+.introScene { z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 68px clamp(20px, 5.5vw, 88px) 26px; text-align: center; background: linear-gradient(90deg, transparent 49.95%, rgb(3 28 81 / 4%) 50%, transparent 50.05%), #fff; }
+.eyebrow { margin: 0 0 15px; color: #0661f1; font-size: 11px; font-weight: 800; letter-spacing: .23em; text-transform: uppercase; }
+.introTitle { max-width: 1120px; margin: 0; color: #031c51; }
+.introTitle span { display: block; color: #0661f1; }
+.introBody { max-width: 600px; margin: 21px 0 0; color: #666d78; font-size: var(--body-copy-size); line-height: 1.65; }
+.portraitRow { display: flex; justify-content: center; gap: clamp(16px, 4vw, 62px); margin-top: clamp(22px, 4vh, 42px); }
+.portraitWrap { display: grid; justify-items: center; gap: 9px; color: #031c51; font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.portrait { position: relative; width: clamp(72px, 9vw, 122px); aspect-ratio: 1; overflow: hidden; border: 5px solid #fff; border-radius: 50%; box-shadow: 0 0 0 1px rgb(3 28 81 / 13%), 0 15px 30px rgb(3 28 81 / 14%); }
+.portraitImage { object-fit: cover; }
+.portraitNumber { position: absolute; right: 3px; bottom: 3px; display: grid; width: 26px; aspect-ratio: 1; place-items: center; border-radius: 50%; background: #0661f1; color: #fff; font-size: 8px; }
+.finalScene { z-index: 5; overflow: hidden; background: #031c51; transform-origin: center; }
+.imageLayer { position: absolute; inset: 0; will-change: transform; }
+.finalImage { object-fit: cover; object-position: center 47%; }
+.finalScrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(3 20 56 / 88%) 0%, rgb(3 28 81 / 64%) 42%, rgb(3 28 81 / 12%) 76%), linear-gradient(0deg, rgb(3 28 81 / 30%), transparent 48%); }
+.finalCopy { position: absolute; z-index: 2; left: clamp(26px, 6vw, 92px); bottom: clamp(56px, 7vw, 94px); width: min(740px, 68%); }
+.finalCopy > p { margin: 0 0 15px; color: #9bd4ff; font-size: 11px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
+.finalCopy h2 { margin: 0; color: #fff; font-family: var(--heading-font); font-size: var(--section-heading-size); font-weight: var(--heading-weight); line-height: var(--heading-leading); letter-spacing: var(--heading-tracking); text-wrap: balance; }
+.finalDescription { max-width: 660px; margin-top: 24px; color: rgb(255 255 255 / 82%); font-size: var(--body-copy-size); line-height: 1.65; }
+.finalMeta { position: absolute; z-index: 2; right: clamp(24px, 3.8vw, 56px); bottom: clamp(25px, 3vw, 40px); display: flex; gap: 8px; }
+.finalMeta span { padding: 7px 11px; border: 1px solid rgb(255 255 255 / 44%); border-radius: 999px; color: #fff; font-size: 9px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; backdrop-filter: blur(8px); }
+.scrollNote { position: absolute; z-index: 30; right: clamp(24px, 4vw, 64px); bottom: 7px; display: flex; align-items: center; gap: 8px; color: #666d78; font-size: 9px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+@media (max-width: 700px) {
+  .track { height: 330svh; } .stickyStage { min-height: 540px; padding: 9px; } .frame { height: calc(100svh - 96px); min-height: 500px; border-radius: 24px; } .frameTopline { padding: 18px 20px; } .frameIndex { display: none; }
+  .introScene { padding: 58px 17px 20px; } .introBody { max-width: 340px; margin-top: 17px; line-height: 1.5; } .portraitRow { width: 100%; gap: 8px; } .portraitWrap { width: 30%; font-size: 8px; } .portrait { width: min(22vw, 88px); border-width: 3px; }
+  .finalImage { object-position: 54% center; } .finalScrim { background: linear-gradient(0deg, rgb(3 20 56 / 94%) 0%, rgb(3 28 81 / 62%) 55%, rgb(3 28 81 / 12%) 100%); } .finalCopy { left: 23px; right: 23px; bottom: 79px; width: auto; } .finalCopy h2 { font-size: clamp(2.35rem, 11.5vw, 4.1rem); line-height: .95; } .finalDescription { margin-top: 17px; font-size: var(--body-copy-size); line-height: 1.5; } .finalMeta { left: 23px; right: auto; bottom: 25px; } .finalMeta span { padding: 6px 8px; font-size: 7px; } .scrollNote { display: none; }
+}
+@media (max-height: 710px) and (min-width: 701px) { .introBody { display: none; } .portraitRow { margin-top: 18px; } .portrait { width: 78px; } .finalDescription { font-size: var(--body-copy-size); margin-top: 14px; } }
+@media (prefers-reduced-motion: reduce) { .track { height: auto; } .stickyStage { position: relative; top: 0; } .scrollNote { display: none; } }

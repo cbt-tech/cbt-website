@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --brand-navy: #031c51;
+  --brand-blue: #0661f1;
+  --brand-gray: #666d78;
+  --brand-sky: #178fe5;
+  --brand-white: #ffffff;
+  --brand-black: #000000;
+  --heading-font: Aptos, "Segoe UI Variable", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --display-heading-size: clamp(3rem, 6.4vw, 6.8rem);
+  --section-heading-size: clamp(2.8rem, 5vw, 5.4rem);
+  --heading-weight: 500;
+  --heading-leading: 0.94;
+  --heading-tracking: -0.06em;
+  --body-copy-size: 1rem;
+  --background: var(--brand-white);
+  --foreground: var(--brand-black);
+}
+* { box-sizing: border-box; }
+html {
+  background: var(--background);
+  scroll-behavior: auto;
+}
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--heading-font);
+}
+a { color: inherit; }
+.brand-display-heading {
+  font-family: var(--heading-font) !important;
+  font-size: var(--display-heading-size) !important;
+  font-weight: var(--heading-weight) !important;
+  line-height: var(--heading-leading) !important;
+  letter-spacing: var(--heading-tracking) !important;
+  text-wrap: balance;
+}
+.brand-section-heading {
+  font-family: var(--heading-font) !important;
+  font-size: var(--section-heading-size) !important;
+  font-weight: var(--heading-weight) !important;
+  line-height: var(--heading-leading) !important;
+  letter-spacing: var(--heading-tracking) !important;
+  text-wrap: balance;
+}
+.who-we-are-overlap-heading {
+  font-family: var(--heading-font);
+  font-size: clamp(4rem, 8.2vw, 8.6rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+}
+.services-nav-trigger { color: inherit; }
+::selection { background: color-mix(in srgb, var(--brand-blue) 22%, white); color: var(--brand-navy); }
+
+/* Shared primary action used for CTA links and form buttons across every page. */
+.site-button {
+  display: inline-flex !important;
+  min-height: 52px;
+  width: fit-content;
+  max-width: 100%;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem !important;
+  padding: 0.8rem 1.4rem !important;
+  border: 1px solid var(--brand-blue) !important;
+  border-radius: 9999px !important;
+  appearance: none;
+  background: var(--brand-blue) !important;
+  color: #fff !important;
+  font-family: inherit;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2;
+  letter-spacing: 0 !important;
+  text-align: center;
+  text-decoration: none !important;
+  text-transform: none !important;
+  white-space: normal;
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgb(6 97 241 / 16%);
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease !important;
+}
+
+.site-button:visited { color: #fff !important; }
+.site-button:hover:not(:disabled) {
+  border-color: var(--brand-navy) !important;
+  background: var(--brand-navy) !important;
+  color: #fff !important;
+  box-shadow: 0 14px 34px rgb(3 28 81 / 22%);
+  transform: translateY(-2px) !important;
+}
+.site-button:active:not(:disabled) {
+  background: var(--brand-navy) !important;
+  color: #fff !important;
+  box-shadow: 0 7px 18px rgb(3 28 81 / 18%);
+  transform: translateY(0) !important;
+}
+.site-button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--brand-sky) 52%, white) !important;
+  outline-offset: 3px;
+}
+.site-button:disabled {
+  color: #fff !important;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none !important;
+}
+.site-button svg { flex: 0 0 auto; transition: transform 0.25s ease; }
+.site-button:hover:not(:disabled) svg { transform: translate(2px, -2px); }
+
+/* Shared section-introduction label, based on the homepage "Who We Are" style. */
+.section-eyebrow {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  color: var(--brand-blue) !important;
+  font-family: var(--heading-font) !important;
+  font-size: 0.625rem !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.28em !important;
+  text-transform: uppercase !important;
+}
+
+.section-eyebrow::before {
+  content: "";
+  display: block;
+  width: 2.5rem !important;
+  height: 1px !important;
+  flex: 0 0 2.5rem;
+  background: currentColor !important;
+}
+
+.section-eyebrow-light { color: #75bdff !important; }
+
+@media (min-width: 640px) {
+  .section-eyebrow { font-size: 0.875rem !important; }
+  .section-eyebrow::before { width: 4rem !important; flex-basis: 4rem; }
+}
+
+@keyframes hero-scroll-cue {
+  0%, 100% { transform: translateY(-2px); }
+  50% { transform: translateY(3px); }
+}
+
+.hero-scroll-cue {
+  animation: hero-scroll-cue 1.8s ease-in-out infinite;
+}
+
+@layer components {
+  .corporate-nav-type {
+    font-family: var(--heading-font);
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  .nav-link {
+    @apply relative rounded-lg px-3 py-2 text-sm font-semibold outline-none transition-colors duration-200;
+    color: var(--brand-gray);
+  }
+
+  .nav-link:hover {
+    color: var(--brand-navy);
+  }
+
+  .nav-link:focus-visible {
+    box-shadow: 0 0 0 2px var(--brand-sky);
+  }
+
+  .nav-link::after {
+    content: "";
+    @apply absolute inset-x-3 -bottom-[17px] h-0.5 origin-center scale-x-0 rounded-full transition-transform duration-200;
+    background: var(--brand-blue);
+  }
+
+  .nav-link:hover::after,
+  .nav-link-active::after {
+    @apply scale-x-100;
+  }
+
+  .nav-link-active {
+    color: var(--brand-gray);
+  }
+
+  .mobile-nav-link {
+    @apply block rounded-xl px-3 py-3 text-base font-semibold outline-none transition-colors;
+    color: var(--brand-gray);
+  }
+
+  .mobile-nav-link:hover {
+    background: color-mix(in srgb, var(--brand-sky) 7%, white);
+    color: var(--brand-navy);
+  }
+
+  .mobile-nav-link:focus-visible {
+    box-shadow: 0 0 0 2px var(--brand-sky);
+  }
+
+  .mobile-nav-link-active {
+    background: color-mix(in srgb, var(--brand-sky) 11%, white);
+    color: var(--brand-gray);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .hero-scroll-cue {
+    animation: none !important;
+  }
+}
